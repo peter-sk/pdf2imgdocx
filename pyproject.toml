@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pdf2imgdocx"
+version = "0.0.1"
+description = "Convert multi-page PDFs into Word documents with full-page images."
+authors = [
+  { name="Peter Schneider-Kamp", email="petersk@imada.sdu.dk" }
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = [
+  "click",
+  "PyPDF2",
+  "pdf2image",
+  "python-docx",
+  "Pillow",
+  "tqdm"
+]
+
+[project.scripts]
+pdf2imgdocx = "pdf2imgdocx.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["pdf2imgdocx"]
+
+[tool.hatch.build]
+include = [
+  "pdf2imgdocx/**/*.py"
+]
+
